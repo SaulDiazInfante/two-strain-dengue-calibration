@@ -1,0 +1,121 @@
+
+R version 4.4.2 (2024-10-31) -- "Pile of Leaves"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "twostraindengue"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "twostraindengue-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('twostraindengue')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("hermosillo_analysis")
+> ### * hermosillo_analysis
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: hermosillo_analysis
+> ### Title: Hermosillo 2010 Analysis Workflow
+> ### Aliases: hermosillo_analysis plot_observed_cases plot_model_fit
+> ###   plot_likelihood_surface plot_profile_likelihood
+> ###   run_hermosillo_2010_analysis
+> 
+> ### ** Examples
+> 
+> analysis <- run_hermosillo_2010_analysis(
++   observed_rows = 1:3,
++   full_time_grid = seq(0, 5, by = 0.5),
++   calibration_grid = seq(0, 2, by = 0.5),
++   fit_time_grid = seq(0, 5, by = 0.5),
++   beta_h_values = seq(1, 1.4, length.out = 3),
++   beta_m_values = seq(0.001, 0.003, length.out = 3),
++   r01_values = seq(1.7, 1.9, length.out = 3),
++   r02_values = seq(0.003, 0.0034, length.out = 3),
++   r0_values = seq(1.3, 1.4, length.out = 3),
++   write_outputs = FALSE
++ )
+> 
+> analysis$reproduction_numbers
+        R01         R02          R0 
+0.614394327 0.001167333 0.784577377 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("hermosillo_analysis", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("model_setup")
+> ### * model_setup
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: model_setup
+> ### Title: Model Defaults and Simulation Helpers
+> ### Aliases: model_setup default_parameters default_state load_study_data
+> ###   run_model extract_reported_cases
+> 
+> ### ** Examples
+> 
+> parameters <- default_parameters()
+> state <- default_state(parameters)
+> time_grid <- seq(0, 1, by = 0.1)
+> 
+> model_output <- run_model(state, time_grid, parameters)
+> head(extract_reported_cases(model_output))
+     classical hemorrhagic
+[1,]  4.000000   1.0000000
+[2,]  4.574777   0.9295072
+[3,]  5.154836   0.8702416
+[4,]  5.747903   0.8217707
+[5,]  6.360186   0.7837030
+[6,]  6.996752   0.7556928
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("model_setup", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.59 0.008 0.598 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

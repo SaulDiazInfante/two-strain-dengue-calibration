@@ -1,0 +1,31 @@
+---
+title: "Model Overview"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Model Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+This vignette documents the two-strain dengue model, its state variables,
+parameters, and the simulation workflow exposed by `twostraindengue`.
+
+```{r}
+library(twostraindengue)
+
+parameters <- default_parameters()
+state <- default_state(parameters)
+time_grid <- seq(0, 2, by = 0.1)
+
+model_output <- run_model(state, time_grid, parameters)
+head(extract_reported_cases(model_output))
+```
+
+The package keeps the model interface deliberately small: defaults are exposed
+through `default_parameters()` and `default_state()`, the ODE solve is wrapped
+by `run_model()`, and reported classical and hemorrhagic cases can be extracted
+with `extract_reported_cases()`.

@@ -1,0 +1,47 @@
+---
+title: "Calibration Workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Calibration Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+This vignette describes the Poisson likelihood calibration workflow and the
+profile likelihood summaries used in the Hermosillo 2010 study.
+
+```{r}
+library(twostraindengue)
+
+study_data <- load_study_data(rows = 35:40)
+all_parameters <- default_parameters()
+fixed_names <- c(
+  "LambdaM", "LambdaS", "Lambda1", "alphaC", "alphaH",
+  "b", "muH", "muM", "vsigma", "vtheta", "p"
+)
+
+surface <- evaluate_loglikelihood_grid(
+  x_values = seq(1.6, 2.0, length.out = 3),
+  y_values = seq(0.004, 0.006, length.out = 3),
+  evaluator = function(par) {
+    negative_loglikelihood_original_scale(
+      par = par,
+      observation_times = study_data$week - min(study_data$week),
+      observed_cases = as.matrix(study_data[, c("classical", "hemorrhagic")]),
+      initial_state = default_state(all_parameters),
+      time_grid = seq(0, 5, by = 0.1),
+      fixed_parameters = all_parameters[fixed_names]
+    )
+  }
+)
+
+surface
+profile_interval(seq(1.6, 2.0, length.out = 3), relative_likelihood(apply(surface, 1, max)))
+```
+
+This compact example mirrors the full calibration workflow while keeping the
+grid intentionally small for fast vignette builds.

@@ -1,0 +1,64 @@
+{
+    "data": {
+        "path": null
+    },
+    "observed_rows": {
+        "start": 1,
+        "end": 6,
+        "by": 1
+    },
+    "grids": {
+        "time": {
+            "full": {
+                "start": 0,
+                "end": 18,
+                "by": 0.1
+            },
+            "calibration": {
+                "start": 0,
+                "end": 6,
+                "by": 0.1
+            },
+            "fit": null
+        },
+        "parameters": {
+            "beta_h": {
+                "start": 1,
+                "end": 3.5,
+                "length_out": 300
+            },
+            "beta_m": {
+                "start": 0.001,
+                "end": 0.0175,
+                "length_out": 300
+            },
+            "r01": {
+                "start": 1.65,
+                "end": 3.0,
+                "length_out": 300
+            },
+            "r02": {
+                "start": 0.003,
+                "end": 0.006,
+                "length_out": 300
+            },
+            "r0": {
+                "start": 1.25,
+                "end": 1.75,
+                "length_out": 300
+            }
+        }
+    },
+    "outputs": {
+        "dir": "outputs",
+        "timestamp": null,
+        "write_outputs": true,
+        "show_progress": "interactive"
+    },
+    "optimisation": {
+        "start": [
+            0.9,
+            0.004
+        ]
+    }
+}

@@ -1,0 +1,28 @@
+
+R version 4.4.2 (2024-10-31) -- "Pile of Leaves"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> if (!requireNamespace("testthat", quietly = TRUE)) {
++   stop("Install the 'testthat' package to run the test suite.")
++ }
+> 
+> testthat::test_check("twostraindengue")
+Loading required package: twostraindengue
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 17 ]
+> 
+> proc.time()
+   user  system elapsed 
+  3.060   4.826   1.948 

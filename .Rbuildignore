@@ -1,0 +1,16 @@
+^\.Rproj\.user$
+^\.RData$
+^\.Rhistory$
+^\.Ruserdata$
+^\.github$
+^\.github/
+^_pkgdown\.yml$
+^dev$
+^outputs$
+^data-raw$
+^renv$
+^.*\.Rcheck$
+^.*\.tar\.gz$
+^twostraindengue\.Rproj$
+^twostraindengue\.Rcheck$
+^inst/extdata/raw/casos_dengue_2010_ageb2010\.dbf$

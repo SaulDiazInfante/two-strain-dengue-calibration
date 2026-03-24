@@ -1,0 +1,40 @@
+---
+title: "Hermosillo 2010 Case Study"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Hermosillo 2010 Case Study}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+This vignette reproduces the Hermosillo 2010 calibration study using the
+package datasets and the script under `inst/scripts/`.
+
+```{r}
+library(twostraindengue)
+
+config <- load_hermosillo_2010_analysis_config()
+config$observed_rows <- 1:3
+config$grids$time$full <- seq(0, 5, by = 0.5)
+config$grids$time$calibration <- seq(0, 2, by = 0.5)
+config$grids$time$fit <- seq(0, 5, by = 0.5)
+config$grids$parameters$beta_h <- seq(1, 1.4, length.out = 3)
+config$grids$parameters$beta_m <- seq(0.001, 0.003, length.out = 3)
+config$grids$parameters$r01 <- seq(1.7, 1.9, length.out = 3)
+config$grids$parameters$r02 <- seq(0.003, 0.0034, length.out = 3)
+config$grids$parameters$r0 <- seq(1.3, 1.4, length.out = 3)
+config$outputs$write_outputs <- FALSE
+config$outputs$show_progress <- FALSE
+
+analysis <- run_hermosillo_2010_analysis(config = config)
+
+analysis$reproduction_numbers
+```
+
+For the full-resolution study outputs, use the packaged script
+`inst/scripts/run_hermosillo_2010_analysis.R`, which calls the same exported
+workflow with production-sized grids and file output enabled.

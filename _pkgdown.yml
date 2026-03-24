@@ -1,0 +1,11 @@
+template:
+  bootstrap: 5
+
+home:
+  title: twostraindengue
+  description: Calibration and analysis tools for a two-strain dengue model.
+
+navbar:
+  structure:
+    left: [reference, articles, news]
+    right: [github]

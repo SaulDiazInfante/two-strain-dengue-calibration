@@ -1,0 +1,25 @@
+Package: twostraindengue
+Title: Calibration Tools for a Two-Strain Dengue Transmission Model
+Version: 0.0.0.9000
+Authors@R: 
+    person("Manuel", "Cota", , "manual@example.org", role = c("aut", "cre"))
+Description: Research-oriented tools for simulating and calibrating a
+    two-strain dengue transmission model, including the Hermosillo 2010
+    case study workflow.
+License: file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports: deSolve, fields
+Suggests: testthat (>= 3.0.0), knitr, rmarkdown
+Config/testthat/edition: 3
+Config/Needs/coverage: covr, xml2
+Config/Needs/documentation: roxygen2
+Config/Needs/website: pkgdown
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2026-03-23 21:29:41 UTC; saul
+Author: Manuel Cota [aut, cre]
+Maintainer: Manuel Cota <manual@example.org>
