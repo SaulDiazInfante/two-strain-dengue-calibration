@@ -1,4 +1,5 @@
 url: https://sauldiazinfante.github.io/two-strain-dengue-calibration/
+llm-docs: false
 
 template:
   bootstrap: 5

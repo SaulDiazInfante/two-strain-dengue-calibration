@@ -6,6 +6,9 @@ Authors@R:
 Description: Research-oriented tools for simulating and calibrating a
     two-strain dengue transmission model, including the Hermosillo 2010
     case study workflow.
+URL: https://github.com/SaulDiazInfante/two-strain-dengue-calibration,
+    https://sauldiazinfante.github.io/two-strain-dengue-calibration/
+BugReports: https://github.com/SaulDiazInfante/two-strain-dengue-calibration/issues
 License: file LICENSE
 Encoding: UTF-8
 Depends:
