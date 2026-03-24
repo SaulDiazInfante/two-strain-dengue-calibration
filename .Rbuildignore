@@ -5,6 +5,7 @@
 ^\.github$
 ^\.github/
 ^_pkgdown\.yml$
+^docs$
 ^dev$
 ^outputs$
 ^data-raw$
