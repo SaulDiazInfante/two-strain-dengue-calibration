@@ -2,14 +2,26 @@ Package: twostraindengue
 Title: Calibration Tools for a Two-Strain Dengue Transmission Model
 Version: 0.0.0.9000
 Authors@R: 
-    person("Manuel", "Cota", , "manual@example.org", role = c("aut", "cre"))
+    c(
+        person(
+            "Saul",
+            "Diaz Infante Velasco",
+            ,
+            "saul.diazinfante@unison.mx",
+            role = c("aut", "cre"),
+            comment = c(
+                affiliation = "Departamento de Matemáticas, Universidad de Sonora, División de Posgrado"
+            )
+        ),
+        person("Manuel", "Cota", role = "aut")
+    )
 Description: Research-oriented tools for simulating and calibrating a
     two-strain dengue transmission model, including the Hermosillo 2010
     case study workflow.
 URL: https://github.com/SaulDiazInfante/two-strain-dengue-calibration,
     https://sauldiazinfante.github.io/two-strain-dengue-calibration/
 BugReports: https://github.com/SaulDiazInfante/two-strain-dengue-calibration/issues
-License: file LICENSE
+License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:
     R (>= 4.1.0)

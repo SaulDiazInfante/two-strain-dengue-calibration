@@ -32,3 +32,8 @@ analysis <- run_hermosillo_2010_analysis(
 - `outputs/`: generated figures and calibration tables
 - `vignettes/`: long-form analysis and package documentation
 - `tests/testthat/`: automated tests
+
+## License
+
+This repository is open source and released under the MIT License. See
+`LICENSE.md` for the full license text.
