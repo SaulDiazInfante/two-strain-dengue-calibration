@@ -9,3 +9,6 @@ renv/library/
 renv/staging/
 outputs/figures/*.tmp
 outputs/calibration/*.tmp
+
+# Generated analysis tables
+outputs/**/*.csv
